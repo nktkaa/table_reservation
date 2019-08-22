@@ -1,0 +1,2 @@
+class TableReserveController < ApplicationController
+end
