@@ -392,3 +392,108 @@ Migrating to CreateTableReserves (20190822080609)
   [1m[36mTable Load (0.3ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mTableReserve Load (0.4ms)[0m  [1m[34mSELECT  "table_reserves".* FROM "table_reserves" WHERE "table_reserves"."table_id" = $1 LIMIT $2[0m  [["table_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to AddRestaurantSchedule (20190822090324)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (41.7ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "open_time" timestamp[0m
+  ↳ db/migrate/20190822090324_add_restaurant_schedule.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "close_time" timestamp[0m
+  ↳ db/migrate/20190822090324_add_restaurant_schedule.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822090324"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mTable Load (0.4ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTableReserve Load (0.7ms)[0m  [1m[34mSELECT  "table_reserves".* FROM "table_reserves" ORDER BY "table_reserves"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTable Load (0.4ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" ORDER BY "clients"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTableReserve Create (0.7ms)[0m  [1m[32mINSERT INTO "table_reserves" ("table_id", "client_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["table_id", 1], ["client_id", 1], ["created_at", "2019-08-22 09:15:10.743031"], ["updated_at", "2019-08-22 09:15:10.743031"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTableReserve Load (0.5ms)[0m  [1m[34mSELECT  "table_reserves".* FROM "table_reserves" ORDER BY "table_reserves"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTableReserve Load (0.4ms)[0m  [1m[34mSELECT  "table_reserves".* FROM "table_reserves" ORDER BY "table_reserves"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to AddRestaurantSchedule (20190822090324)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "restaurants" DROP COLUMN "close_time"[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "restaurants" DROP COLUMN "open_time"[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190822090324"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (38.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to AddRestaurantSchedule (20190822090324)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "open_time" character varying[0m
+  ↳ db/migrate/20190822090324_add_restaurant_schedule.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "close_time" character varying[0m
+  ↳ db/migrate/20190822090324_add_restaurant_schedule.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822090324"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
