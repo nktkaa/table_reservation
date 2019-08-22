@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+expensive_restaurant = Restaurant.create(name: 'SuchExpensive', address: 'Some street')
+cheap_restaurant = Restaurant.create(name: 'SuchCheap', address: 'Some another street')
+
+30.times {|i| expensive_restaurant.tables.create(number: i) }
+10.times {|i| cheap_restaurant.tables.create(number: i) }
+
+Client.create(name: 'Hannibal Lecter', phone: '+1234567890')

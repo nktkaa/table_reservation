@@ -1,0 +1,394 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateRestaurants (20190822080429)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190822080429_create_restaurants.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190822080429"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateTables (20190822080438)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "tables" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "restaurant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190822080438_create_tables.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tables_on_restaurant_id" ON "tables" ("restaurant_id")[0m
+  ↳ db/migrate/20190822080438_create_tables.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190822080438"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateClients (20190822080444)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "clients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190822080444_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190822080444"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateTableReserves (20190822080609)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "table_reserves" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reserve_date_start" datetime, "reserve_date_end" datetime, "table_id" integer, "client_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_table_reserves_on_table_id" ON "table_reserves" ("table_id")[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_table_reserves_on_client_id" ON "table_reserves" ("client_id")[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190822080609"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-22 08:09:39.674162"], ["updated_at", "2019-08-22 08:09:39.674162"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (542.0ms)[0m  [1m[35mCREATE DATABASE "table_reserve_dev" ENCODING = 'utf8'[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (411.6ms)[0m  [1m[35mCREATE DATABASE "table_reserve_test" ENCODING = 'utf8'[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateRestaurants (20190822080429)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "name" character varying, "address" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190822080429_create_restaurants.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822080429"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateTables (20190822080438)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "tables" ("id" bigserial primary key, "number" integer, "restaurant_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190822080438_create_tables.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_tables_on_restaurant_id" ON "tables"  ("restaurant_id")[0m
+  ↳ db/migrate/20190822080438_create_tables.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822080438"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateClients (20190822080444)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "name" character varying, "phone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190822080444_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822080444"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+Migrating to CreateTableReserves (20190822080609)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "table_reserves" ("id" bigserial primary key, "reserve_date_start" timestamp, "reserve_date_end" timestamp, "table_id" bigint, "client_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_table_reserves_on_table_id" ON "table_reserves"  ("table_id")[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_table_reserves_on_client_id" ON "table_reserves"  ("client_id")[0m
+  ↳ db/migrate/20190822080609_create_table_reserves.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190822080609"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-22 08:12:40.833483"], ["updated_at", "2019-08-22 08:12:40.833483"]]
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(637194892662302520)[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[36mTable Load (0.3ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nikitaosipyuk/.rvm/gems/ruby-2.6.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mRestaurant Create (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "SuchExpensive"], ["address", "Some street"], ["created_at", "2019-08-22 08:22:56.410777"], ["updated_at", "2019-08-22 08:22:56.410777"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mRestaurant Create (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "SuchCheap"], ["address", "Some another street"], ["created_at", "2019-08-22 08:22:56.454491"], ["updated_at", "2019-08-22 08:22:56.454491"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.5ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 0], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.486289"], ["updated_at", "2019-08-22 08:22:56.486289"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.4ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 1], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.529685"], ["updated_at", "2019-08-22 08:22:56.529685"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.3ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 2], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.532526"], ["updated_at", "2019-08-22 08:22:56.532526"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 3], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.534958"], ["updated_at", "2019-08-22 08:22:56.534958"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 4], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.536904"], ["updated_at", "2019-08-22 08:22:56.536904"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 5], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.538810"], ["updated_at", "2019-08-22 08:22:56.538810"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 6], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.540549"], ["updated_at", "2019-08-22 08:22:56.540549"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 7], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.542264"], ["updated_at", "2019-08-22 08:22:56.542264"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 8], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.544173"], ["updated_at", "2019-08-22 08:22:56.544173"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.3ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 9], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.546185"], ["updated_at", "2019-08-22 08:22:56.546185"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 10], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.548119"], ["updated_at", "2019-08-22 08:22:56.548119"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 11], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.549833"], ["updated_at", "2019-08-22 08:22:56.549833"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 12], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.551573"], ["updated_at", "2019-08-22 08:22:56.551573"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 13], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.553417"], ["updated_at", "2019-08-22 08:22:56.553417"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 14], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.555416"], ["updated_at", "2019-08-22 08:22:56.555416"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 15], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.557281"], ["updated_at", "2019-08-22 08:22:56.557281"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.3ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 16], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.559312"], ["updated_at", "2019-08-22 08:22:56.559312"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 17], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.561330"], ["updated_at", "2019-08-22 08:22:56.561330"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 18], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.563113"], ["updated_at", "2019-08-22 08:22:56.563113"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 19], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.564836"], ["updated_at", "2019-08-22 08:22:56.564836"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 20], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.566422"], ["updated_at", "2019-08-22 08:22:56.566422"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 21], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.567886"], ["updated_at", "2019-08-22 08:22:56.567886"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 22], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.569358"], ["updated_at", "2019-08-22 08:22:56.569358"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 23], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.570891"], ["updated_at", "2019-08-22 08:22:56.570891"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 24], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.572340"], ["updated_at", "2019-08-22 08:22:56.572340"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 25], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.573815"], ["updated_at", "2019-08-22 08:22:56.573815"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 26], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.575366"], ["updated_at", "2019-08-22 08:22:56.575366"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 27], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.576852"], ["updated_at", "2019-08-22 08:22:56.576852"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 28], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.578340"], ["updated_at", "2019-08-22 08:22:56.578340"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 29], ["restaurant_id", 1], ["created_at", "2019-08-22 08:22:56.579879"], ["updated_at", "2019-08-22 08:22:56.579879"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 0], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.581625"], ["updated_at", "2019-08-22 08:22:56.581625"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 1], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.583224"], ["updated_at", "2019-08-22 08:22:56.583224"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 2], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.584696"], ["updated_at", "2019-08-22 08:22:56.584696"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.3ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 3], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.586466"], ["updated_at", "2019-08-22 08:22:56.586466"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 4], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.588051"], ["updated_at", "2019-08-22 08:22:56.588051"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 5], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.597763"], ["updated_at", "2019-08-22 08:22:56.597763"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 6], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.599497"], ["updated_at", "2019-08-22 08:22:56.599497"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 7], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.601036"], ["updated_at", "2019-08-22 08:22:56.601036"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 8], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.602547"], ["updated_at", "2019-08-22 08:22:56.602547"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTable Create (0.2ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["number", 9], ["restaurant_id", 2], ["created_at", "2019-08-22 08:22:56.604069"], ["updated_at", "2019-08-22 08:22:56.604069"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mClient Create (0.5ms)[0m  [1m[32mINSERT INTO "clients" ("name", "phone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Hannibal Lecter"], ["phone", "+1234567890"], ["created_at", "2019-08-22 08:22:56.613192"], ["updated_at", "2019-08-22 08:22:56.613192"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.4ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."restaurant_id" = $1 LIMIT $2[0m  [["restaurant_id", 1], ["LIMIT", 11]]
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tables" WHERE "tables"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[36mTable Load (0.3ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTableReserve Load (0.4ms)[0m  [1m[34mSELECT  "table_reserves".* FROM "table_reserves" WHERE "table_reserves"."table_id" = $1 LIMIT $2[0m  [["table_id", 1], ["LIMIT", 11]]
